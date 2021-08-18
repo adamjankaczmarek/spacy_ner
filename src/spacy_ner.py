@@ -57,11 +57,15 @@ def ent_to_dict(entity: spacy.tokens.span.Span) -> Dict:
         "start_pos": entity.start_char,
         "end_pos": entity.end_char
     }
-    
+
 
 def ner_to_text(tagged_text: spacy.tokens.doc.Doc) -> List[Dict]:
     """
     Converts tagged text to list of dictionary-encoded entities
+    Args:
+        - tagged_text (spacy.tokens.doc.Doc): tagged text to be converted
+    Returns:
+        - List[Dict]: list of dictionaries (one for each entity)
     """
     return [ent_to_dict(ent) for ent in tagged_text.ents]
 
